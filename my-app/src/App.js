@@ -11,7 +11,16 @@ class App extends Component {
   }
   addNinja = (ninja) => {
     ninja.id = Math.random();
-    let ninjas = [...this.state.ninjas, ninja];
+    let ninjas = [...this.state.ninjas, ninja]; //不用push，不改变state，把state数组加上新的赋值给一个新的ninjas
+    this.setState({
+      ninjas:ninjas
+    })
+  }
+  deleteNinja = (id) => {
+    //console.log(id);
+    let ninjas = this.state.ninjas.filter(ninja => {
+      return ninja.id !== id
+    });
     this.setState({
       ninjas:ninjas
     })
@@ -21,11 +30,10 @@ class App extends Component {
       <div className="App">
         <h1>my first React App</h1>
         <p>welcome</p>
-        <Ninjas ninjas={this.state.ninjas} />
+        <Ninjas ninjas={this.state.ninjas} deleteNinja={this.deleteNinja} />
         <AddNinja addNinja={this.addNinja}/>
       </div>
     );
   }
 }
-
 export default App;

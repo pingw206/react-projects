@@ -1,5 +1,5 @@
-import React, {Component} from 'react'
-import Ninjas from './Ninjas'
+import React, {Component} from 'react';
+
 
 class AddNinja extends Component {
   state = {
@@ -9,8 +9,8 @@ class AddNinja extends Component {
   }
   handleChange = (e) => {
     this.setState({
-      [e.target.id]: e.target.value 
-    })
+      [e.target.id]: e.target.value    //input里面的id和state的三项相同，state[id]就能对应到
+    });
   }
   handleSubmit = (e) => {
     e.preventDefault();
@@ -20,11 +20,11 @@ class AddNinja extends Component {
     return(
       <div>
         <form onSubmit={this.handleSubmit}> 
-          <lable htmlFor="name">Name:</lable>
+          <label htmlFor="name">Name:</label>
           <input type="text" id="name" onChange={this.handleChange} />
-          <lable htmlFor="name">Age:</lable>
+          <label htmlFor="name">Age:</label>
           <input type="text" id="age" onChange={this.handleChange} />
-          <lable htmlFor="name">Belt:</lable>
+          <label htmlFor="name">Belt:</label>
           <input type="text" id="belt" onChange={this.handleChange} />
           <button>Submit</button>
 
