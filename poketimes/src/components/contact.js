@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Rainbow from '../hoc/Rainbow';
 const Contact = () => {
   return (
     <div className="container">
@@ -9,4 +9,4 @@ const Contact = () => {
   )
 }
 
-export default Contact;
+export default Rainbow(Contact);
