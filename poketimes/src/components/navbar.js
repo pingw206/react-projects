@@ -2,9 +2,9 @@ import React from "react";
 import {Link, NavLink, withRouter } from 'react-router-dom';
 //link的作用同e.prevent.default() 类似，这样不用每次都刷新
 const Navbar = (props) => {
-  setTimeout(() => {
-    props.history.push('./about')
-  },2000)  //自动跳转到about页面
+  // setTimeout(() => {
+  //   props.history.push('./about')
+  // },2000)  //自动跳转到about页面
   return (
     <nav className='nav-wrapper red darken-3'>
       <div className='container'>
