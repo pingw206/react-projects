@@ -13,7 +13,7 @@ class AddNinja extends Component {
     });
   }
   handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault();  //通知浏览器不要执行与事件关联的默认动作
     this.props.addNinja(this.state);
   }
   render(){
