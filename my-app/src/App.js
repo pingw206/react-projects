@@ -20,7 +20,7 @@ class App extends Component {
     //console.log(id);
     let ninjas = this.state.ninjas.filter(ninja => {
       return ninja.id !== id
-    });
+    });   //通过过滤的方法来删除
     this.setState({
       ninjas:ninjas
     })
