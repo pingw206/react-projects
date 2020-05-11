@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import store from './store/index';
-import { changeInputAction,addItemAction,deleteItemAction } from './store/actionCreators';
+import { changeInputAction,addItemAction,deleteItemAction,getListAction } from './store/actionCreators';
 import TodoListUI from './TodoListUI';
+import axios from 'axios'
 
 class TodoList extends Component {
     constructor(props){
@@ -12,7 +13,6 @@ class TodoList extends Component {
         this.clickBtn = this.clickBtn.bind(this);
         this.deleteItem = this.deleteItem.bind(this);
         store.subscribe(this.storeChange); // 订阅Redux的状态
-
     }
     render() { 
         return ( 
@@ -24,6 +24,14 @@ class TodoList extends Component {
                 deleteItem={this.deleteItem}
             />
          );
+    }
+    componentDidMount(){
+        axios.get('https://www.easy-mock.com/mock/5cfcce489dc7c36bd6da2c99/xiaojiejie/getList')
+        .then((res)=>{
+            const data = res.data;
+            const action = getListAction(data);
+            store.dispatch(action)
+        })
     }
     storeChange(){
         this.setState(store.getState());
