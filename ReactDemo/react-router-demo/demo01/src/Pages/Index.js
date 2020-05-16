@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,Redirect } from 'react-router-dom';
+
 class Index extends Component {
     constructor(props) {
         super(props);
@@ -12,8 +13,11 @@ class Index extends Component {
          }
     }
     render() { 
+        
         return (
+            
             <div>
+                <Redirect to="/home/" />
                 <h2>My Blog</h2>
                 <ul>
                 {
